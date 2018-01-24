@@ -3,15 +3,41 @@ import scss from './stylesheets/app.scss'
 import Vue from 'vue'
 import Resource from 'vue-resource'
 import Router from 'vue-router'
+import Vue2Filters from 'vue2-filters'
+import Papaparse from 'papaparse'
+import Anchorme from 'anchorme'
+
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
-import About from './components/About.vue'
-import Quote from './components/Quote.vue'
+import Tasks from './components/Tasks.vue'
 
 // Install plugins
 Vue.use(Router)
 Vue.use(Resource)
+Vue.use(Vue2Filters)
+Vue.use(Papaparse)
+
+// Custom Filters
+Vue.filter('anchorme', function (value) {
+  console.log(value)
+  return Anchorme(value);
+})
+
+// Custom Filters
+Vue.filter('lispCase', function (value) {
+  return value.replace(/\s+/g, '-').toLowerCase();
+})
+
+Vue.filter('date', function (value) {
+  const date = value.split("-");
+  const year = date[0];
+  const month = date[1];
+  const day = date[2];
+  const formattedDate =  month + "-" + day + "-" + year;
+
+  return formattedDate;
+})
 
 // route config
 let routes = [
@@ -21,14 +47,9 @@ let routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    component: About
-  },
-  {
-    path: '/quote',
-    name: 'quote',
-    component: Quote
+    path: '/tasks/:employee',
+    name: 'tasks',
+    component: Tasks
   },
   { path: '*', redirect: '/home' }
 ]

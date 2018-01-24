@@ -3,8 +3,20 @@
 @include foundation-everything;
 @include foundation-flex-grid; // Remove this if you want the regular float grid
 @import "./variables.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Ubuntu:300,300i,400,400i,500,500i,700,700i');
 
 /** GLOBALS **/
 body{
   color: $black;
+  background: $very-light-gray;
+  font-family: $body-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
 }
