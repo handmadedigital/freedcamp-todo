@@ -314,11 +314,23 @@
     margin-right: 20px;
     padding: 20px;
     border-radius: 8px;
-    background-color: #d9d9d9;
+    background-color: rgba(0,0,0,0.08);
+    cursor: pointer;
+    outline: 0;
+    transition: 300ms;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.14);
+    }
 
     &.match_expand {
       margin: 0;
-      padding: 14px 15px;
+      padding: 0;
+      min-width: 45px;
+      line-height: 45px;
+      text-align: center;
+      border-radius: 30px;
+
     }
   }
   textarea {
