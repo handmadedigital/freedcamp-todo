@@ -255,24 +255,25 @@
   <div class="redirects-generator-wrapper">
     <div class="row">
       <div class="medium-8 medium-offset-2 columns">
-        <h1>Generate Redirects Now - {{this.oldCount}}</h1>
+        <h1>Generate Redirect Matches</h1>
         <div class="inputs-wrapper">
           <div class="input-wrapper">
-            <label>Old Sitemap</label>
+            <label>Old Sitemap - <strong>{{oldUrls.length}}</strong></label>
             <div class="input">
               <input type="text" name="oldSitemap" :value="oldSitemap">
             </div>
           </div>
           <div class="input-wrapper">
-            <label>New Sitemap</label>
+            <label>New Sitemap - <strong>{{newUrls.length}}</strong></label>
             <div class="input">
               <input type="text" name="newSitemap" :value="newSitemap">
             </div>
           </div>
         </div>
         <button type="button" name="button" @click="findMatches">Find Matches</button>
-        <textarea name="name">{{csvData}}</textarea>
+        <textarea name="name" :disabled="!csvData">{{csvData}}</textarea>
         <p>Copy and Paste CSV Content (ctrl+a - Select All) (ctrl+c - Copy)</p>
+        <h2 v-if="finalUrlMatches.length">{{finalUrlMatches.length}} Matches Found</h2>
         <div v-for="(urlMatch, index) in finalUrlMatches" class="inputs-wrapper">
           <button class="match_expand" @click="urlMatch.topMatch.isOpen = !urlMatch.topMatch.isOpen">
             {{index}}
