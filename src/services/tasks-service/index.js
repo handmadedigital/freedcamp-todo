@@ -2,7 +2,7 @@ import Papaparse from 'papaparse'
 
 export default {
   getTasks(ctx, employee) {
-    var tasksCsv = ctx.$http.get('Insert URL Here');
+    var tasksCsv = ctx.$http.get('https://freedcamp.com/api/v1/csv/f2b5df0f66930859f9b150d1467ae6dd');
 
 
     return tasksCsv.then(resp => {
@@ -62,8 +62,6 @@ export default {
     }, (err) => {
       console.log(err)
     });
-
-
 
   }
 }
