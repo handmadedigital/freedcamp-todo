@@ -10,6 +10,7 @@ import Anchorme from 'anchorme'
 import App from './components/App.vue'
 import Home from './components/Home.vue'
 import Tasks from './components/Tasks.vue'
+import TopThree from './components/TopThree.vue'
 import Builder from './components/Builder.vue'
 import Monogram from './components/Monogram.vue'
 import RedirectsGenerator from './components/RedirectsGenerator.vue'
@@ -67,6 +68,11 @@ let routes = [
     path: '/tasks/:employee',
     name: 'tasks',
     component: Tasks
+  },
+  {
+    path: '/top-three',
+    name: 'TopThree',
+    component: TopThree
   },
   { path: '*', redirect: '/home' }
 ]
